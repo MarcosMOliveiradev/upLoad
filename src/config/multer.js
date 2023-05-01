@@ -9,7 +9,7 @@ module.exports = {
             cb(null, path.resolve(__dirname, "..", "..", "temp", "uploads",));
         },
         filename: (req, file, cb) => {
-            cryto.randomBytes(16, (err, hash) => {
+            cryto.randomBytes(5, (err, hash) => {
                 if (err) cb(err);
 
                 const fileName = `${hash.toString('hex')}-${file.originalname}`;

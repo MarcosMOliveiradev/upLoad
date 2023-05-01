@@ -1,16 +1,19 @@
 // const { Router } = require('express')
-const express = require ('express');
-const multer = require('multer');
-const multerConfig = require('./config/multer.js');
+const express = require('express');
+
+// Rotas
+const route = require('./route.js')
+
+
+/// Starte do servidor
 const app = express();
 
-app.get('/', (req, res) => {res.send("hello")})
 
-app.post('/', multer(multerConfig).single('file'), (req, res) => {
-    res.send(req.file)
-    console.log(req.file)
-})
 
+app.use(route)
+
+/// Porta que o servidor roda
 app.listen({port: 3000}, () => {
     console.log("rodando!")
 })
+

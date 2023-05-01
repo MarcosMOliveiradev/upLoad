@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model UpLoad {
+  id String  @id @default(uuid())
+  name String
+  filename String
+
+  @@map("uploads")
+}
